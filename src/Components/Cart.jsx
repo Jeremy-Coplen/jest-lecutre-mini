@@ -16,7 +16,7 @@ class Cart extends Component {
           <div>
             {item.qty}x {item.product}
           </div>
-          <div>${/* Build Logic For Sub Total */}</div>
+          <div>${calculateSubTotal(item)}</div>
         </h4>
         <button onClick={() => this.props.removeItem(item.id)}>
           Remove item <FontAwesome name="trash" />

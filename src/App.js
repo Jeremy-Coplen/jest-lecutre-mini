@@ -14,26 +14,35 @@ class App extends Component {
     this.state = {
       cart: [],
       products: products,
-      total: 0.00,
-      tax: 0,
+      total: "0.00",
+      tax: 6.85,
       showCart: false,
     };
+    this.calculateTotal = this.calculateTotal.bind(this)
   }
 
   addToCart = (itemToAdd) => {
-    //Build Logic for this
+    this.setState({
+      cart: addToCart(itemToAdd, this.state.cart)
+    }, () => this.calculateTotal())
   }
 
   showCart = () => {
-    //Build Logic for this
+    this.setState({
+      showCart: toggle(this.state.showCart)
+    })
   }
 
-  calculateTotal = (cart) => {
-    //Build Logic for this
+  calculateTotal = () => {
+    this.setState({
+      total: calculateTotal(this.state.cart, this.state.tax)
+    })
   }
 
   removeItem = (id) => {
-    //Build Logic for this
+    this.setState({
+      cart: removeItem(this.state.cart, id)
+    }, () => this.calculateTotal())
   }
 
   renderProducts = (products) => {

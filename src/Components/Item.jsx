@@ -3,7 +3,7 @@ import FontAwesome from 'react-fontawesome';
 
 class Item extends Component {
   render() {
-    const { image, id, product, price } = this.props.product;
+    const { image, product, price } = this.props.product;
     return (
       <div className="item">
         <figure>
